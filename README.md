@@ -27,7 +27,7 @@
       <a href="#license">License</a>
       <br />
       <br />
-      <p align="center"> <strong>GoStack - Challenge 5: First project with React</strong></p>
+      <p align="center"> <strong>GoStack - Challenge 6: First project with React Native</strong></p>
    </p>
 
 </p>
