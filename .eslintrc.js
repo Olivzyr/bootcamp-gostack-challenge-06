@@ -36,6 +36,7 @@ module.exports = {
     'react/state-in-constructor': 'off',
     'react/jsx-props-no-spreading': [0],
     "react/sort-comp": [0],
+    "react/prefer-stateless-function": [0],
   },
 };
 
