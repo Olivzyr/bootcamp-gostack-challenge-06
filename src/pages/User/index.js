@@ -31,9 +31,11 @@ export default class User extends Component {
   state = {
     stars: [],
     page: 1,
+    refreshing: false,
     loading: false,
   };
 
+  // Starter function to inicilize navigation
   async componentDidMount() {
     const { navigation } = this.props;
     const user = navigation.getParam('user');
@@ -45,6 +47,7 @@ export default class User extends Component {
     this.setState({ stars: response.data, loading: false });
   }
 
+  // Unlimited scrolling list
   loadMore = async () => {
     const { navigation } = this.props;
     const user = navigation.getParam('user');
@@ -65,9 +68,32 @@ export default class User extends Component {
     });
   };
 
+  // Pull to refresh aways back to page one
+  refreshList = async () => {
+    const { navigation } = this.props;
+    const user = navigation.getParam('user');
+
+    this.setState({ loading: true });
+    this.setState({ refreshing: true });
+
+    const { stars } = this.state;
+    const pageRefresh = 1;
+
+    const response = await api.get(`/users/${user.login}/starred`, {
+      params: { page: pageRefresh },
+    });
+
+    this.setState({
+      stars: [...stars, ...response.data],
+      page: pageRefresh,
+      loading: false,
+      refreshing: false,
+    });
+  };
+
   render() {
     const { navigation } = this.props;
-    const { stars, loading } = this.state;
+    const { stars, loading, refreshing } = this.state;
 
     const user = navigation.getParam('user');
 
@@ -88,6 +114,8 @@ export default class User extends Component {
             onEndReached={this.loadMore} // Função que carrega mais itens
             data={stars}
             keyExtractor={star => String(star.id)}
+            onRefresh={this.refreshList} // Função dispara quando o usuário arrasta a lista pra baixo
+            refreshing={refreshing} // Variável que armazena um estado true/false que representa se a lista está atualizando
             renderItem={({ item }) => (
               <Starred>
                 <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
