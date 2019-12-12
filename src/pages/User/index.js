@@ -30,6 +30,7 @@ export default class User extends Component {
 
   state = {
     stars: [],
+    page: 1,
     loading: false,
   };
 
@@ -43,6 +44,26 @@ export default class User extends Component {
 
     this.setState({ stars: response.data, loading: false });
   }
+
+  loadMore = async () => {
+    const { navigation } = this.props;
+    const user = navigation.getParam('user');
+
+    this.setState({ loading: true });
+
+    const { stars, page } = this.state;
+    const newPage = page + 1;
+
+    const response = await api.get(`/users/${user.login}/starred`, {
+      params: { page: newPage },
+    });
+
+    this.setState({
+      stars: [...stars, ...response.data],
+      page: newPage,
+      loading: false,
+    });
+  };
 
   render() {
     const { navigation } = this.props;
@@ -63,6 +84,8 @@ export default class User extends Component {
         ) : (
           <Stars
             loading={loading}
+            onEndReachedThreshold={0.2} // Carrega mais itens quando chegar em 20% do fim
+            onEndReached={this.loadMore} // Função que carrega mais itens
             data={stars}
             keyExtractor={star => String(star.id)}
             renderItem={({ item }) => (
