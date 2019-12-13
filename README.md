@@ -52,6 +52,7 @@
 - [x] prop-types
 - [x] react-icons
 - [x] styled-components
+- [x] [WebView][webview]
 - [x] eslint
 - [x] prettier
 - [x] editorconfig
@@ -60,9 +61,15 @@
 ## Developed Features
 
 - [x] API git-hub connection
+= [x] Loading repository list with activity indicator
+- [x] Infinity Scroll in starred repository list
+- [x] Pull to refresh in starred list
+- [x] WebView after access any starred repository present in list
 ---
 ## Running for First Time
-To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [npm][npm] + [Yarn v1.13][yarn] or higher installed on your computer. From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [npm][npm] + [genymotion][genymotion] + [Yarn v1.13][yarn] or higher installed on your computer and follow this [tutorial][tutorial] to prepare your enviroment.
+
+After prepare your enviroment execute this comands from you command line:
 
 ```bash
 
@@ -78,10 +85,9 @@ $ cd bootcamp-gostack-challenge-06
 # Install dependencies
 $ yarn install
 
-# Run the Project
+# Run the Project with emulator open
 $ react-native run-android
 $ react-native start
-
 
 ```
 ---
@@ -123,5 +129,8 @@ This project is under the MIT license. See the [LICENSE](./LICENSE) for more inf
 [npm]: #
 
 [Challenge-06]:#
+[webview]: https://github.com/react-native-community/react-native-webview/blob/master/docs/Getting-Started.md
+[tutorial]: https://docs.rocketseat.dev/ambiente-react-native/introducao
+[genymotion]: https://www.genymotion.com/fun-zone/
 
 
