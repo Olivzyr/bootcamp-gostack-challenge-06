@@ -81,12 +81,12 @@ export default class User extends Component {
     const pageRefresh = 1;
 
     const response = await api.get(`/users/${user.login}/starred`, {
-      params: { page: pageRefresh },
+      params: { page: 1 },
     });
 
     this.setState({
-      stars: [...stars, ...response.data],
-      page: pageRefresh,
+      stars: [...response.data],
+      page: 1,
       loading: false,
       refreshing: false,
     });
