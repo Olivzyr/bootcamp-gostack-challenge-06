@@ -32,6 +32,7 @@ export default class User extends Component {
   state = {
     stars: [],
     page: 1,
+    loadingStarreds: false,
     refreshing: false,
     loading: false,
   };
@@ -48,14 +49,22 @@ export default class User extends Component {
     this.setState({ stars: response.data, loading: false });
   }
 
+  renderFooterLoading = () => {
+    const { loadingStarreds } = this.state;
+
+    return loadingStarreds ? <ActivityIndicator /> : null;
+  };
+
   // Unlimited scrolling list
   loadMore = async () => {
     const { navigation } = this.props;
     const user = navigation.getParam('user');
-
-    this.setState({ loading: true });
-
     const { stars, page } = this.state;
+
+    if (stars.length < 30 * page) return;
+
+    this.setState({ loadingStarreds: true });
+
     const newPage = page + 1;
 
     const response = await api.get(`/users/${user.login}/starred`, {
@@ -65,7 +74,7 @@ export default class User extends Component {
     this.setState({
       stars: [...stars, ...response.data],
       page: newPage,
-      loading: false,
+      loadingStarreds: false,
     });
   };
 
@@ -74,7 +83,6 @@ export default class User extends Component {
     const { navigation } = this.props;
     const user = navigation.getParam('user');
 
-    this.setState({ loading: true });
     this.setState({ refreshing: true });
 
     const response = await api.get(`/users/${user.login}/starred`, {
@@ -84,7 +92,6 @@ export default class User extends Component {
     this.setState({
       stars: [...response.data],
       page: 1,
-      loading: false,
       refreshing: false,
     });
   };
@@ -113,11 +120,8 @@ export default class User extends Component {
           <ActivityIndicator color="#7159c1" size="large" />
         ) : (
           <Stars
-            loading={loading}
             onEndReachedThreshold={0.2} // Carrega mais itens quando chegar em 20% do fim
             onEndReached={this.loadMore} // Função que carrega mais itens
-            onRefresh={this.refreshList} // Função dispara quando o usuário arrasta a lista pra baixo
-            refreshing={refreshing} // Variável que armazena um estado true/false que representa se a lista está atualizando
             data={stars}
             keyExtractor={star => String(star.id)}
             renderItem={({ item }) => (
@@ -129,6 +133,9 @@ export default class User extends Component {
                 </Info>
               </Starred>
             )}
+            ListFooterComponent={this.renderFooterLoading}
+            onRefresh={this.refreshList} // Função dispara quando o usuário arrasta a lista pra baixo
+            refreshing={refreshing} // Variável que armazena um estado true/false que representa se a lista está atualizando
           />
         )}
       </Container>
