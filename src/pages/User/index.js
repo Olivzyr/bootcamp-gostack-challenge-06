@@ -77,9 +77,6 @@ export default class User extends Component {
     this.setState({ loading: true });
     this.setState({ refreshing: true });
 
-    const { stars } = this.state;
-    const pageRefresh = 1;
-
     const response = await api.get(`/users/${user.login}/starred`, {
       params: { page: 1 },
     });
@@ -119,10 +116,10 @@ export default class User extends Component {
             loading={loading}
             onEndReachedThreshold={0.2} // Carrega mais itens quando chegar em 20% do fim
             onEndReached={this.loadMore} // Função que carrega mais itens
-            data={stars}
-            keyExtractor={star => String(star.id)}
             onRefresh={this.refreshList} // Função dispara quando o usuário arrasta a lista pra baixo
             refreshing={refreshing} // Variável que armazena um estado true/false que representa se a lista está atualizando
+            data={stars}
+            keyExtractor={star => String(star.id)}
             renderItem={({ item }) => (
               <Starred onPress={() => this.handleNavigate(item)}>
                 <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
