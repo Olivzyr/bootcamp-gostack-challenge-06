@@ -36,8 +36,8 @@
 
 ---
 ## **About the Challenge**
-#### Create an application from scratch to list starred repository files present in github api using **Styled components** and **ReactNative**..
-#### Objective: Create new application funcionalities in module 6 project.
+#### Create an application from scratch to list starred repository files present in github api using **Styled components** and **ReactNative**.
+#### Objective: Create new application funcionalities in project present in module 6.
 ---
 # Resources and Procedures
 ---
