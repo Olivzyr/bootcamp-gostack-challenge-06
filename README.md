@@ -38,6 +38,11 @@
 ## **About the Challenge**
 #### Create an application from scratch to list starred repository files present in github api using **Styled components** and **ReactNative**.
 #### Objective: Create new application funcionalities in project present in module 6.
+
+---
+## Project in Video
+
+#### To see project function in video please click [here][projectFunctionInVideo]
 ---
 # Resources and Procedures
 ---
@@ -223,4 +228,5 @@ This project is under the MIT license. See the [LICENSE](./LICENSE) for more inf
 [initialized-project]: https://user-images.githubusercontent.com/16024701/70842368-872e9900-1e01-11ea-820b-d03a89d57a9e.gif
 [project-in-function]: https://user-images.githubusercontent.com/16024701/70842406-150a8400-1e02-11ea-84fb-407c707519ed.gif
 [project-in-function-02]: https://user-images.githubusercontent.com/16024701/70842528-a1697680-1e03-11ea-9634-ff58fdff62ca.gif
+[projectFunctionInVideo]: https://youtu.be/m4GsCdayBcI
 
