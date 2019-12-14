@@ -23,7 +23,8 @@
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^1.10.3",
     "reactotron-react-native": "^4.0.2",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "tree-cli": "^0.6.4"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",

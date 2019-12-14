@@ -46,8 +46,6 @@
 - [x] FlexBox
 - [x] [Tree-cli][tree-cli]
 - [x] React Native
-- [x] HTML
-- [x] CSS
 - [x] axios
 - [x] prop-types
 - [x] react-icons
@@ -61,7 +59,7 @@
 ## Developed Features
 
 - [x] API git-hub connection
-= [x] Loading repository list with activity indicator
+- [x] Loading repository list with activity indicator
 - [x] Infinity Scroll in starred repository list
 - [x] Pull to refresh in starred list
 - [x] WebView after access any starred repository present in list
@@ -97,7 +95,7 @@ To create a tree files in project run commands present right below in respositor
 ```bash
 $ yarn add tree-cli
 
-$ yarn tree -l 4 -o out.txt --ignore node_modules, .gitignore
+$ yarn tree -l 4 -o out.txt --ignore node_modules,.gitignore,.gitattributes
 
 ```
 
@@ -105,11 +103,101 @@ $ yarn tree -l 4 -o out.txt --ignore node_modules, .gitignore
 
 ```bash
 
+├── LICENSE
+├── README.md
+├── __tests__
+|  └── App-test.js
+├── android
+|  ├── app
+|  |  ├── BUCK
+|  |  ├── build
+|  |  |  ├── generated
+|  |  |  ├── intermediates
+|  |  |  ├── outputs
+|  |  |  └── tmp
+|  |  ├── build.gradle
+|  |  ├── build_defs.bzl
+|  |  ├── debug.keystore
+|  |  ├── proguard-rules.pro
+|  |  └── src
+|  |     ├── debug
+|  |     └── main
+|  ├── build
+|  |  └── kotlin
+|  |     └── sessions
+|  ├── build.gradle
+|  ├── gradle
+|  |  └── wrapper
+|  |     ├── gradle-wrapper.jar
+|  |     └── gradle-wrapper.properties
+|  ├── gradle.properties
+|  ├── gradlew
+|  ├── gradlew.bat
+|  └── settings.gradle
+├── app.json
+├── babel.config.js
+├── index.js
+├── ios
+|  ├── Podfile
+|  ├── modulo06
+|  |  ├── AppDelegate.h
+|  |  ├── AppDelegate.m
+|  |  ├── Base.lproj
+|  |  |  └── LaunchScreen.xib
+|  |  ├── Images.xcassets
+|  |  |  ├── AppIcon.appiconset
+|  |  |  └── Contents.json
+|  |  ├── Info.plist
+|  |  └── main.m
+|  ├── modulo06-tvOS
+|  |  └── Info.plist
+|  ├── modulo06-tvOSTests
+|  |  └── Info.plist
+|  ├── modulo06.xcodeproj
+|  |  ├── project.pbxproj
+|  |  └── xcshareddata
+|  |     └── xcschemes
+|  └── modulo06Tests
+|     ├── Info.plist
+|     └── modulo06Tests.m
+├── metro.config.js
+├── package.json
+├── src
+|  ├── config
+|  |  └── ReactotronConfig.js
+|  ├── index.js
+|  ├── pages
+|  |  ├── Main
+|  |  |  ├── index.js
+|  |  |  └── styles.js
+|  |  ├── Repo
+|  |  |  └── index.js
+|  |  └── User
+|  |     ├── index.js
+|  |     └── styles.js
+|  ├── routes.js
+|  └── services
+|     └── api.js
+└── yarn.lock
+
+directory: 2210 file: 10210
+
+ignored: directory (147)
+
 ```
 ---
 ## Project in function
 
-![image][Challenge-06]
+### **Initialize project**
+
+![Initialize Project][initialized-project]
+
+
+### **Aplication in use**
+
+![project-in-function][project-in-function]
+
+![project-in-function-02][project-in-function-02]
 ---
 ## License
 This project is under the MIT license. See the [LICENSE](./LICENSE) for more information.
@@ -132,5 +220,7 @@ This project is under the MIT license. See the [LICENSE](./LICENSE) for more inf
 [webview]: https://github.com/react-native-community/react-native-webview/blob/master/docs/Getting-Started.md
 [tutorial]: https://docs.rocketseat.dev/ambiente-react-native/introducao
 [genymotion]: https://www.genymotion.com/fun-zone/
-
+[initialized-project]: https://user-images.githubusercontent.com/16024701/70842368-872e9900-1e01-11ea-820b-d03a89d57a9e.gif
+[project-in-function]: https://user-images.githubusercontent.com/16024701/70842406-150a8400-1e02-11ea-84fb-407c707519ed.gif
+[project-in-function-02]: https://user-images.githubusercontent.com/16024701/70842528-a1697680-1e03-11ea-9634-ff58fdff62ca.gif
 
